@@ -8,6 +8,7 @@ from tornado.escape import json_encode
 
 from config import config
 from recognize import Recognizer
+from util.multiprocessing import exception_handle_task, TaskResult
 
 recognizer = None
 pool = None
@@ -21,7 +22,7 @@ def init():
 
 
 def recognize(image_data):
-    return recognizer.recognize(image_data)
+    return exception_handle_task(recognizer.recognize)(image_data)
 
 
 # noinspection PyAbstractClass,PyMethodMayBeStatic
@@ -39,7 +40,7 @@ class RecognizeHandler(web.RequestHandler):
                 callback=callback
             )
         )
-        return result
+        return result.get_or_die()
 
     async def get(self):
         image_url = self.get_argument('image')
