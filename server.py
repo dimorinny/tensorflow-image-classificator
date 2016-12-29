@@ -8,6 +8,7 @@ from tornado.escape import json_encode
 
 from config import config
 from recognize import Recognizer
+from response import success, error
 from util.multiprocessing import exception_handle_task, TaskResult
 
 recognizer = None
@@ -48,9 +49,10 @@ class RecognizeHandler(web.RequestHandler):
         image_response = await self.load_image(image_url)
         recognition_result = await self.recognize(image_response.body)
 
-        self.write_json({
-            'result': recognition_result
-        })
+        self.write_json(success(recognition_result))
+
+    def write_error(self, status_code, **kwargs):
+        self.write_json(error())
 
     def write_json(self, data):
         self.add_header('Content-Type', 'application/json')
