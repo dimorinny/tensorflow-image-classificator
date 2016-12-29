@@ -3,7 +3,7 @@ import multiprocessing
 
 config = {
     'PROCESS_POOL_SIZE': multiprocessing.cpu_count(),
-    'TENSORFLOW_MODEL_PATH': '/tf',
+    'TENSORFLOW_MODEL_PATH': '/project/graph',
     'PORT': 80
 }
 
