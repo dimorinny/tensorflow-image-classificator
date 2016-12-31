@@ -22,8 +22,9 @@ def init():
     recognizer = Recognizer()
 
 
+@exception_handle_task
 def recognize(image_data):
-    return exception_handle_task(recognizer.recognize)(image_data)
+    return recognizer.recognize(image_data)
 
 
 # noinspection PyAbstractClass,PyMethodMayBeStatic
