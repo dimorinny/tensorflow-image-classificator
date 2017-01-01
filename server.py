@@ -9,7 +9,7 @@ from tornado.escape import json_encode
 from config import config
 from recognize import Recognizer
 from response import success, error
-from util.multiprocessing import exception_handle_task, TaskResult
+from util.multiprocessing import exception_handle_task
 
 recognizer = None
 pool = None

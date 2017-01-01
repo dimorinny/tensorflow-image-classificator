@@ -23,4 +23,4 @@ class Recognizer:
         predictions = self.session.run(self.softmax_tensor,
                                        {'DecodeJpeg/contents:0': image_data})
         top_k = predictions[0].argsort()[-len(predictions[0]):][::-1]
-        return {self.label_lines[node_id]: int(predictions[0][node_id] * 100) for node_id in top_k}
+        return {self.label_lines[node_id]: predictions[0][node_id].item() for node_id in top_k}
