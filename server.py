@@ -46,10 +46,13 @@ class RecognizeHandler(web.RequestHandler):
 
     async def get(self):
         image_url = self.get_argument('image')
-
         image_response = await self.load_image(image_url)
         recognition_result = await self.recognize(image_response.body)
+        self.write_json(success(recognition_result))
 
+    async def post(self):
+        image = self.request.files['image'][0]
+        recognition_result = await self.recognize(image.body)
         self.write_json(success(recognition_result))
 
     def write_error(self, status_code, **kwargs):

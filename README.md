@@ -22,11 +22,13 @@ docker run -d -p 80:80 -v <graph-path>:/project/graph dimorinny/tensorflow-image
 
 ### Usage
 
-For image classification you should execute GET request with image url param like this:
+For image classification you should execute `GET` request with image url param like this:
 
 ```
 http://127.0.0.1:8080/api/v1/recognize?image=http://i.imgur.com/yAWdJ9b.jpg
 ```
+
+Also you can send image using `POST` request with `image` form-data param using same url.
 
 After that server returns recognition result for every labels that contains in your graph. For example after success request you got response like this:
 
