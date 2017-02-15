@@ -1,5 +1,6 @@
 ## Tensorflow image classificator
 
+[![](https://images.microbadger.com/badges/image/dimorinny/tensorflow-image-classificator.svg)](https://microbadger.com/images/dimorinny/tensorflow-image-classificator "Get your own image badge on microbadger.com")
 
 Http proxy for Tensorflow image classification model that can used as microservice in your application. Classification model that you will pass to container should be based on Google [inception](https://github.com/tensorflow/models/tree/master/inception) model. For more information you can read [docs](https://www.tensorflow.org/tutorials/image_recognition/) or watch [guide](https://www.youtube.com/watch?v=QfNvhPx5Px8).
 
